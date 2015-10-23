@@ -59,7 +59,7 @@ $(function () {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-        it('is hidden by default', function () {            
+        it('is hidden by default', function () {
             expect(document.getElementsByTagName("body")[0].className).toEqual("menu-hidden");
         });
 
@@ -69,23 +69,40 @@ $(function () {
          * should have two expectations: does the menu display when
          * clicked and does it hide when clicked again.
          */
-        it('changes visibilty when clicked', function(){
-           var element = document.getElementsByTagName("body")[0].className;
-           var style = window.getComputedStyle(element);
-           expect();
-           expect();
+        it('changes visibilty when clicked', function () {
+            var link = document.getElementsByClassName('menu-icon-link')[0];
+            var body = document.getElementsByTagName("body")[0];
+            function eventFire(el, etype) {
+                if (el.fireEvent) {
+                    el.fireEvent('on' + etype);
+                } else {
+                    var evObj = document.createEvent('Events');
+                    evObj.initEvent(etype, true, false);
+                    el.dispatchEvent(evObj);
+                }
+            }
+            ;
+            eventFire(link, 'click');
+            expect(body.className).not.toEqual("menu-hidden");
+            eventFire(link, 'click');
+            expect(body.className).toEqual("menu-hidden");
         });
     });
 
 
     /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function () {
+        /* TODO: Write a test that ensures when the loadFeed
+         * function is called and completes its work, there is at least
+         * a single .entry element within the .feed container.
+         * Remember, loadFeed() is asynchronous so this test wil require
+         * the use of Jasmine's beforeEach and asynchronous done() function.
+         */
 
-    /* TODO: Write a test that ensures when the loadFeed
-     * function is called and completes its work, there is at least
-     * a single .entry element within the .feed container.
-     * Remember, loadFeed() is asynchronous so this test wil require
-     * the use of Jasmine's beforeEach and asynchronous done() function.
-     */
+
+    });
+
+
 
     /* TODO: Write a new test suite named "New Feed Selection"
      
