@@ -43,7 +43,7 @@ $(function () {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-
+        // goes through each object in Feed and checks to make sure they are defined.
         it('have name', function () {
             for (var i in allFeeds) {
                 expect(allFeeds[i].name).toBeDefined();
@@ -59,6 +59,8 @@ $(function () {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+
+        //Gets the first element named body and checks that its class is "menu-hidden"
         it('is hidden by default', function () {
             expect(document.getElementsByTagName("body")[0].className).toEqual("menu-hidden");
         });
@@ -69,6 +71,7 @@ $(function () {
          * should have two expectations: does the menu display when
          * clicked and does it hide when clicked again.
          */
+        //Using event fire we wait for a trigger to happen and it checks that after the menu does not hide when clicked and hides when clicked again.
         it('changes visibilty when clicked', function () {
             var link = document.getElementsByClassName('menu-icon-link')[0];
             var body = document.getElementsByTagName("body")[0];
@@ -98,6 +101,8 @@ $(function () {
          * Remember, loadFeed() is asynchronous so this test wil require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+
+        //finds the element .entry in the .feed container and makes sure that it is not null.
         beforeEach(function (done) {
             loadFeed(0, function () {
                 done();
@@ -117,6 +122,8 @@ $(function () {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        
+        // Test first grabs the content of the first .entry and saves it. Then when the content changes it grabs the first .entry and compares with the old one.
         var oldContent;
 
         beforeEach(function (done) {
