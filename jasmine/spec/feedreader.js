@@ -19,9 +19,7 @@ $(function () {
             }
         });
     });
-
-
-
+    
     describe('The menu', function () {
         //Gets the first element named body and checks that its class is "menu-hidden"
         it('is hidden by default', function () {
@@ -48,9 +46,7 @@ $(function () {
             expect(body.className).toEqual("menu-hidden");
         });
     });
-
-
-
+    
     describe('Initial Entries', function () {
         //finds the element .entry in the .feed container and makes sure that it is not null.
         beforeEach(function (done) {
