@@ -16,6 +16,7 @@ $(function () {
         it('have name', function () {
             for (var i in allFeeds) {
                 expect(allFeeds[i].name).toBeDefined();
+                expect(allFeeds[i].name).not.toBe(0);
             }
         });
     });
